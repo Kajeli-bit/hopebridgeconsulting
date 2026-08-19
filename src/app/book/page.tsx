@@ -99,10 +99,10 @@ export default function BookPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1e3a5f] to-[#2d5a87] px-6 py-16 text-white">
+      <section className="bg-gradient-to-br from-[#1e3a5f] to-[#2d5a87] px-6 py-20 text-white">
         <div className="mx-auto max-w-7xl">
-          <h1 className="text-4xl font-bold md:text-5xl">Book a Session</h1>
-          <p className="mt-4 max-w-2xl text-lg text-zinc-300">
+          <h1 className="font-heading text-4xl font-bold md:text-5xl">Book a Session</h1>
+          <p className="mt-5 max-w-2xl text-lg text-zinc-300">
             Complete the form below to request an appointment. We&apos;ll
             confirm your booking as soon as possible.
           </p>
@@ -110,10 +110,10 @@ export default function BookPage() {
       </section>
 
       {/* Booking Form */}
-      <section className="px-6 py-12">
+      <section className="px-6 py-16">
         <div className="mx-auto max-w-2xl">
           {/* Progress Steps */}
-          <div className="mb-10 flex items-center justify-between">
+          <div className="mb-12 flex items-center justify-between">
             {[1, 2, 3, 4].map((s) => (
               <div key={s} className="flex items-center">
                 <div
@@ -139,7 +139,7 @@ export default function BookPage() {
           {/* Step 1: Service Type */}
           {step === 1 && (
             <div>
-              <h2 className="text-2xl font-bold text-[#1e3a5f] dark:text-white">
+              <h2 className="font-heading text-2xl font-bold text-[#1e3a5f] dark:text-white">
                 What can we help you with?
               </h2>
               <p className="mt-2 text-zinc-600 dark:text-zinc-400">
@@ -169,7 +169,7 @@ export default function BookPage() {
           {/* Step 2: Specific Service */}
           {step === 2 && (
             <div>
-              <h2 className="text-2xl font-bold text-[#1e3a5f] dark:text-white">
+              <h2 className="font-heading text-2xl font-bold text-[#1e3a5f] dark:text-white">
                 Choose a service
               </h2>
               <p className="mt-2 text-zinc-600 dark:text-zinc-400">
@@ -198,7 +198,7 @@ export default function BookPage() {
           {/* Step 3: Appointment Details */}
           {step === 3 && (
             <div>
-              <h2 className="text-2xl font-bold text-[#1e3a5f] dark:text-white">
+              <h2 className="font-heading text-2xl font-bold text-[#1e3a5f] dark:text-white">
                 Preferred appointment
               </h2>
               <p className="mt-2 text-zinc-600 dark:text-zinc-400">
@@ -262,7 +262,7 @@ export default function BookPage() {
           {/* Step 4: Your Information */}
           {step === 4 && (
             <div>
-              <h2 className="text-2xl font-bold text-[#1e3a5f] dark:text-white">
+              <h2 className="font-heading text-2xl font-bold text-[#1e3a5f] dark:text-white">
                 Your information
               </h2>
               <p className="mt-2 text-zinc-600 dark:text-zinc-400">
@@ -349,7 +349,7 @@ export default function BookPage() {
               <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#4a9e6e]/10">
                 <span className="text-4xl">✓</span>
               </div>
-              <h2 className="mt-6 text-2xl font-bold text-[#1e3a5f] dark:text-white">
+              <h2 className="mt-6 font-heading text-2xl font-bold text-[#1e3a5f] dark:text-white">
                 Thank You!
               </h2>
               <p className="mt-4 text-zinc-600 dark:text-zinc-400">

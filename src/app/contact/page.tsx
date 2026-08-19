@@ -11,7 +11,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#1e3a5f] via-[#244a72] to-[#2d5a87] px-6 py-20 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#1e3a5f] via-[#244a72] to-[#2d5a87] px-6 py-24 text-white">
         <div className="absolute inset-0">
           <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#4a9e6e]/10 blur-3xl" />
           <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-[#d4a843]/8 blur-3xl" />
@@ -20,8 +20,8 @@ export default function ContactPage() {
           <span className="text-sm font-semibold uppercase tracking-wider text-[#7bc67e]">
             Reach Out
           </span>
-          <h1 className="mt-2 text-4xl font-bold md:text-5xl">Contact Us</h1>
-          <p className="mt-4 max-w-2xl text-lg text-zinc-300">
+          <h1 className="mt-3 font-heading text-4xl font-bold md:text-5xl">Contact Us</h1>
+          <p className="mt-5 max-w-2xl text-lg text-zinc-300">
             We&apos;re here to help. Whether you need counseling support or
             organizational consultancy, reach out and let&apos;s start the
             conversation.
@@ -30,7 +30,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Info + Form */}
-      <section className="px-6 py-20">
+      <section className="px-6 py-24">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-5">
             {/* Contact Information */}
@@ -38,13 +38,13 @@ export default function ContactPage() {
               <span className="text-sm font-semibold uppercase tracking-wider text-[#4a9e6e]">
                 Get in Touch
               </span>
-              <h2 className="mt-2 text-2xl font-bold text-[#1e3a5f] dark:text-white">
+              <h2 className="mt-3 font-heading text-2xl font-bold text-[#1e3a5f] dark:text-white">
                 Contact Information
               </h2>
               <div className="mt-8 space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[#1e3a5f]/10">
-                    <svg className="h-5 w-5 text-[#1e3a5f] dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[#1e3a5f]/10 text-[#1e3a5f] dark:text-white">
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
@@ -63,8 +63,8 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[#1e3a5f]/10">
-                    <svg className="h-5 w-5 text-[#1e3a5f] dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[#1e3a5f]/10 text-[#1e3a5f] dark:text-white">
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
@@ -112,7 +112,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="lg:col-span-3">
               <div className="rounded-2xl border border-zinc-100 bg-white p-8 shadow-sm dark:border-zinc-700 dark:bg-zinc-800">
-                <h2 className="text-2xl font-bold text-[#1e3a5f] dark:text-white">
+                <h2 className="font-heading text-2xl font-bold text-[#1e3a5f] dark:text-white">
                   Send Us a Message
                 </h2>
                 <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">

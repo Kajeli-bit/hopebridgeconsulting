@@ -27,7 +27,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block transition-opacity hover:opacity-80">
-              <span className="text-2xl font-bold">
+              <span className="font-heading text-2xl font-bold">
                 Hope<span className="text-[#7bc67e]">Bridge</span>
               </span>
             </Link>
