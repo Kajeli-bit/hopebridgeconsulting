@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 const footerLinks = {
@@ -5,15 +7,15 @@ const footerLinks = {
     { label: "Individual Counseling", href: "/counseling/individual" },
     { label: "Marriage & Couples", href: "/counseling/marriage" },
     { label: "Family Counseling", href: "/counseling/family" },
-    { label: "Organizational Development", href: "/consultancy/organizational" },
-    { label: "Project Management", href: "/consultancy/project-management" },
+    { label: "Psychosocial Support", href: "/counseling/psychosocial" },
+    { label: "Consultancy Services", href: "/consultancy" },
   ],
   company: [
     { label: "About Us", href: "/about" },
-    { label: "Our Team", href: "/about#team" },
-    { label: "Hope Talks", href: "/hope-talks" },
+    { label: "Hope Talks Podcast", href: "/hope-talks" },
     { label: "Resources", href: "/resources" },
     { label: "Contact", href: "/contact" },
+    { label: "Book a Session", href: "/book" },
   ],
 };
 
@@ -24,7 +26,7 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-block">
+            <Link href="/" className="inline-block transition-opacity hover:opacity-80">
               <span className="text-2xl font-bold">
                 Hope<span className="text-[#7bc67e]">Bridge</span>
               </span>
@@ -34,12 +36,12 @@ export default function Footer() {
               individuals, families, organizations, and communities. Finding
               hope, building bridges.
             </p>
-            <div className="mt-6 flex gap-4">
+            <div className="mt-6 flex gap-3">
               <a
                 href="https://wa.me/255683410417"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
+                className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 transition-all hover:bg-[#25D366] hover:shadow-lg"
                 aria-label="WhatsApp"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -48,7 +50,7 @@ export default function Footer() {
               </a>
               <a
                 href="tel:+255683410417"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
+                className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 transition-all hover:bg-white/20 hover:shadow-lg"
                 aria-label="Call us"
               >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -60,7 +62,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-zinc-400">
+            <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-zinc-400">
               Services
             </h3>
             <ul className="space-y-3">
@@ -79,7 +81,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-zinc-400">
+            <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-zinc-400">
               Company
             </h3>
             <ul className="space-y-3">
@@ -99,26 +101,37 @@ export default function Footer() {
 
         {/* Contact Info */}
         <div className="mt-12 border-t border-white/10 pt-8">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div className="text-sm text-zinc-400">
               <p>P.O. Box 32724, Msigani, Malambamawili, Ubungo</p>
               <p>Dar es Salaam, Tanzania</p>
             </div>
             <div className="flex gap-6 text-sm text-zinc-400">
-              <a href="tel:+255683410417" className="hover:text-white">
+              <a href="tel:+255683410417" className="transition-colors hover:text-white">
                 0683 410 417
               </a>
-              <a href="tel:+255655806343" className="hover:text-white">
+              <a href="tel:+255655806343" className="transition-colors hover:text-white">
                 0655 806 343
               </a>
             </div>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-8 text-center text-xs text-zinc-500">
-          © {new Date().getFullYear()} Hope Bridge Counseling and Consultancy.
-          All rights reserved.
+        {/* Copyright + Back to top */}
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
+          <p className="text-xs text-zinc-500">
+            © {new Date().getFullYear()} Hope Bridge Counseling and Consultancy.
+            All rights reserved.
+          </p>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="flex items-center gap-2 text-xs text-zinc-400 transition-colors hover:text-white"
+          >
+            Back to top
+            <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+            </svg>
+          </button>
         </div>
       </div>
     </footer>
