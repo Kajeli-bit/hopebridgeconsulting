@@ -6,28 +6,8 @@ import { useState } from "react";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  {
-    label: "Counseling",
-    href: "/counseling",
-    children: [
-      { label: "Individual Counseling", href: "/counseling/individual" },
-      { label: "Marriage & Couples", href: "/counseling/marriage" },
-      { label: "Family Counseling", href: "/counseling/family" },
-      { label: "Psychosocial Support", href: "/counseling/psychosocial" },
-    ],
-  },
-  {
-    label: "Consultancy",
-    href: "/consultancy",
-    children: [
-      { label: "Organizational Development", href: "/consultancy/organizational" },
-      { label: "Institutional Strengthening", href: "/consultancy/institutional" },
-      { label: "Project Management", href: "/consultancy/project-management" },
-      { label: "Research & Consultancy", href: "/consultancy/research" },
-      { label: "Training & Coaching", href: "/consultancy/training" },
-      { label: "Technical Consultancy", href: "/consultancy/technical" },
-    ],
-  },
+  { label: "Counseling", href: "/counseling" },
+  { label: "Consultancy", href: "/consultancy" },
   { label: "Hope Talks", href: "/hope-talks" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
@@ -35,7 +15,6 @@ const navItems = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm dark:bg-zinc-900">
@@ -50,37 +29,13 @@ export default function Header() {
         {/* Desktop Nav */}
         <nav className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => (
-            <div
+            <Link
               key={item.label}
-              className="relative"
-              onMouseEnter={() => item.children && setOpenDropdown(item.label)}
-              onMouseLeave={() => setOpenDropdown(null)}
+              href={item.href}
+              className="text-sm font-medium text-zinc-700 transition-colors hover:text-[#1e3a5f] dark:text-zinc-300"
             >
-              <Link
-                href={item.href}
-                className="text-sm font-medium text-zinc-700 transition-colors hover:text-[#1e3a5f] dark:text-zinc-300"
-              >
-                {item.label}
-                {item.children && (
-                  <span className="ml-1 text-xs">▾</span>
-                )}
-              </Link>
-
-              {/* Dropdown */}
-              {item.children && openDropdown === item.label && (
-                <div className="absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border border-zinc-200 bg-white py-2 shadow-lg dark:border-zinc-700 dark:bg-zinc-800">
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.href}
-                      href={child.href}
-                      className="block px-4 py-2 text-sm text-zinc-700 transition-colors hover:bg-zinc-100 hover:text-[#1e3a5f] dark:text-zinc-300 dark:hover:bg-zinc-700"
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+              {item.label}
+            </Link>
           ))}
         </nav>
 
@@ -113,29 +68,14 @@ export default function Header() {
         <div className="border-t border-zinc-200 bg-white px-6 py-4 lg:hidden dark:border-zinc-700 dark:bg-zinc-900">
           <nav className="flex flex-col gap-4">
             {navItems.map((item) => (
-              <div key={item.label}>
-                <Link
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-base font-medium text-zinc-700 dark:text-zinc-300"
-                >
-                  {item.label}
-                </Link>
-                {item.children && (
-                  <div className="ml-4 mt-2 flex flex-col gap-2">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="text-sm text-zinc-600 dark:text-zinc-400"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
+                className="text-base font-medium text-zinc-700 dark:text-zinc-300"
+              >
+                {item.label}
+              </Link>
             ))}
             <Link
               href="/book"
