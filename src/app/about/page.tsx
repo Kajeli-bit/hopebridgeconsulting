@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import dbConnect from "@/lib/dbConnect";
+import TeamMember from "@/models/TeamMember";
 
 export const metadata: Metadata = {
   title: "About Us | Hope Bridge",
@@ -47,31 +49,21 @@ const values = [
   },
 ];
 
-const team = [
-  {
-    name: "Anna Christopher Mbeyela",
-    role: "Overall Leadership, Administration and Strategic Coordinator",
-    bio: "Providing visionary leadership and strategic coordination to drive Hope Bridge's mission of delivering professional counseling and consultancy services.",
-    image: "/team/anna-christopher-mbeyela.jpg",
-    initials: "AM",
-  },
-  {
-    name: "Dr. Felix Peter Mkini",
-    role: "Deputy Coordinator",
-    bio: "Supporting strategic coordination and operational leadership to ensure the effective delivery of counseling and consultancy services.",
-    image: "/team/dr-felix-peter-mkini.jpg",
-    initials: "FM",
-  },
-  {
-    name: "Levina Athanas",
-    role: "Head of Consultancy, Research and Knowledge Management",
-    bio: "Leading consultancy, research initiatives, and knowledge management to drive evidence-based solutions and organizational impact.",
-    image: "/team/levina-athanas.jpg",
-    initials: "LA",
-  },
-];
-
-export default function AboutPage() {
+export default async function AboutPage() {
+  let team: { name: string; role: string; bio: string; image: string; initials: string }[] = [];
+  try {
+    await dbConnect();
+    const docs = await TeamMember.find({}).sort({ order: 1, createdAt: 1 }).lean();
+    team = docs.map((d) => ({
+      name: d.name,
+      role: d.role,
+      bio: d.bio,
+      image: d.image || "",
+      initials: d.initials || d.name.split(" ").map((n: string) => n[0]).join("").toUpperCase().slice(0, 2),
+    }));
+  } catch (e) {
+    console.error("Failed to load team from MongoDB:", e);
+  }
   return (
     <>
       {/* Hero */}
