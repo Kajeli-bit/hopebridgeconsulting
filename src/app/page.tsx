@@ -139,7 +139,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="max-w-3xl">
-              ccccccccccc
+            
               <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-zinc-200 backdrop-blur-sm">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#4a9e6e]" />
                 Serving Dar es Salaam & beyond
