@@ -83,13 +83,21 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* CTA Button */}
-        <Link
-          href="/book"
-          className="hidden rounded-full bg-[#4a9e6e] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#3d8a5e] hover:shadow-md lg:inline-block"
-        >
-          Book a Session
-        </Link>
+        {/* CTA + Admin */}
+        <div className="hidden items-center gap-4 lg:flex">
+          <Link
+            href="/book"
+            className="rounded-full bg-[#4a9e6e] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#3d8a5e] hover:shadow-md"
+          >
+            Book a Session
+          </Link>
+          <Link
+            href="/admin/login"
+            className="rounded-full bg-zinc-200 px-5 py-2.5 text-sm font-medium text-zinc-600 transition-all hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600"
+          >
+            Admin
+          </Link>
+        </div>
 
         {/* Mobile Menu Button */}
         <button
@@ -135,6 +143,13 @@ export default function Header() {
               className="mt-3 rounded-full bg-[#4a9e6e] px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-[#3d8a5e]"
             >
               Book a Session
+            </Link>
+            <Link
+              href="/admin/login"
+              onClick={() => setMobileOpen(false)}
+              className="mt-2 text-center text-xs font-medium text-zinc-400 hover:text-[#1e3a5f] dark:hover:text-white"
+            >
+              Admin Login
             </Link>
           </nav>
         </div>
