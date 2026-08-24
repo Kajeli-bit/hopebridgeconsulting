@@ -77,30 +77,13 @@ export default async function AboutPage() {
           </svg>
         </div>
         <div className="relative mx-auto max-w-7xl">
-          <span className="text-sm font-semibold uppercase tracking-wider text-[#7bc67e]">
-            Our Story
-          </span>
-          <h1 className="mt-3 font-heading text-4xl font-bold md:text-5xl">About Hope Bridge</h1>
-          <p className="mt-5 max-w-2xl text-lg text-zinc-300">
-            Professional counseling and consultancy services supporting
-            individuals, families, organizations, and communities in Dar es
-            Salaam, Tanzania.
-          </p>
-        </div>
-      </section>
-
-      {/* Our Story */}
-      <section className="px-6 py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-2">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <span className="text-sm font-semibold uppercase tracking-wider text-[#4a9e6e]">
+              <span className="text-sm font-semibold uppercase tracking-wider text-[#7bc67e]">
                 Who We Are
               </span>
-              <h2 className="mt-3 font-heading text-3xl font-bold text-[#1e3a5f] dark:text-white">
-                Our Story
-              </h2>
-              <div className="mt-6 space-y-4 text-zinc-600 leading-relaxed dark:text-zinc-400">
+              <h1 className="mt-3 font-heading text-4xl font-bold md:text-5xl">Our Story</h1>
+              <div className="mt-6 space-y-4 text-lg leading-relaxed text-zinc-300">
                 <p>
                   Hope Bridge Counseling and Consultancy was founded with a
                   clear vision: to be a bridge connecting people to hope,
@@ -120,7 +103,138 @@ export default async function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className="rounded-2xl border border-zinc-100 bg-zinc-50 p-8 transition-shadow hover:shadow-lg dark:border-zinc-700 dark:bg-zinc-800">
+            <div className="hidden justify-center lg:flex">
+              <Image
+                src="/logo.jpg"
+                alt="Hope Bridge Logo"
+                width={400}
+                height={400}
+                className="rounded-3xl"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+ {/* Meaning of the Logo */}
+      <section className="bg-zinc-50 px-6 py-24 dark:bg-zinc-900">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center">
+            <span className="text-sm font-semibold uppercase tracking-wider text-[#d4a843]">
+              Our Identity
+            </span>
+            <h2 className="mt-3 font-heading text-3xl font-bold text-[#1e3a5f] dark:text-white">
+              Meaning of the Logo
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-zinc-600 dark:text-zinc-400">
+              Every element in our logo carries a purpose — reflecting who we are and what we stand for.
+            </p>
+          </div>
+
+          <div className="mt-14 grid items-start gap-12 lg:grid-cols-1">
+            {/* Symbol meanings */}
+            <div className="space-y-5 ">
+              {/* Symbols */}
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="flex items-start gap-3 rounded-xl bg-white p-4 shadow-sm dark:bg-zinc-800">
+                  <Image src="/symbols/bridge.png" alt="Bridge" width={32} height={32} className="mt-0.5 flex-shrink-0 rounded-lg" />
+                  <div>
+                    <p className="font-semibold text-[#1e3a5f] dark:text-white">Bridge</p>
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400">Overcoming challenges through professional support</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 rounded-xl bg-white p-4 shadow-sm dark:bg-zinc-800">
+                  <Image src="/symbols/river.png" alt="River" width={32} height={32} className="mt-0.5 flex-shrink-0 rounded-lg" />
+                  <div>
+                    <p className="font-semibold text-[#1e3a5f] dark:text-white">River</p>
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400">Life&apos;s challenges, changes and uncertainties</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 rounded-xl bg-white p-4 shadow-sm dark:bg-zinc-800">
+                  <Image src="/symbols/heart.png" alt="Heart" width={32} height={32} className="mt-0.5 flex-shrink-0 rounded-lg" />
+                  <div>
+                    <p className="font-semibold text-[#1e3a5f] dark:text-white">Heart</p>
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400">Compassion, care and emotional healing</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 rounded-xl bg-white p-4 shadow-sm dark:bg-zinc-800">
+                  <Image src="/symbols/human-figures.png" alt="Human Figures" width={32} height={32} className="mt-0.5 flex-shrink-0 rounded-lg" />
+                  <div>
+                    <p className="font-semibold text-[#1e3a5f] dark:text-white">Human Figures</p>
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400">Partnership, support and togetherness</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 rounded-xl bg-white p-4 shadow-sm dark:bg-zinc-800">
+                  <Image src="/symbols/plant.png" alt="Plant" width={32} height={32} className="mt-0.5 flex-shrink-0 rounded-lg" />
+                  <div>
+                    <p className="font-semibold text-[#1e3a5f] dark:text-white">Plant</p>
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400">Growth, renewal and resilience</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 rounded-xl bg-white p-4 shadow-sm dark:bg-zinc-800">
+                  <Image src="/symbols/open-hand.png" alt="Open Hand" width={32} height={32} className="mt-0.5 flex-shrink-0 rounded-lg" />
+                  <div>
+                    <p className="font-semibold text-[#1e3a5f] dark:text-white">Open Hand</p>
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400">Care, protection and assistance</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 rounded-xl bg-white p-4 shadow-sm dark:bg-zinc-800">
+                  <Image src="/symbols/circular-lines.png" alt="Circular Lines" width={32} height={32} className="mt-0.5 flex-shrink-0 rounded-lg" />
+                  <div>
+                    <p className="font-semibold text-[#1e3a5f] dark:text-white">Circular Lines</p>
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400">Unity, inclusion and continuity</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-1 grid items-start  lg:grid-cols-1">
+              {/* Colors */}
+              <h3 className="mt-6 text-lg font-bold text-[#1e3a5f] dark:text-white">
+                Colors
+              </h3>
+              <div className="flex gap-4">
+                <div className="flex items-center gap-3 rounded-xl bg-white p-4 shadow-sm dark:bg-zinc-800">
+                  <span className="h-6 w-6 rounded-full bg-[#1e3a5f] shadow-inner" />
+                  <div>
+                    <p className="font-semibold text-[#1e3a5f] dark:text-white">Blue</p>
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400">Trust and professionalism</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 rounded-xl bg-white p-4 shadow-sm dark:bg-zinc-800">
+                  <span className="h-6 w-6 rounded-full bg-[#4a9e6e] shadow-inner" />
+                  <div>
+                    <p className="font-semibold text-[#1e3a5f] dark:text-white">Green</p>
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400">Optimism and brighter future</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Overall message */}
+              <div className="mt-2 grid gap-4 sm:grid-cols-2">
+                <div className="rounded-2xl border-l-4 border-[#4a9e6e] bg-white p-4 shadow-sm dark:bg-zinc-800">
+                  <h3 className="font-bold text-[#1e3a5f] dark:text-white">Overall Message</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                    Bridging challenges, building hope and supporting positive transformation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>      {/* Purpose, Mission & Vision */}
+      <section className="px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center">
+            <span className="text-sm font-semibold uppercase tracking-wider text-[#4a9e6e]">
+              What Drives Us
+            </span>
+            <h2 className="mt-3 font-heading text-3xl font-bold text-[#1e3a5f] dark:text-white">
+              Purpose, Mission & Vision
+            </h2>
+          </div>
+          <div className="mt-14 grid gap-8 md:grid-cols-3">
+            {/* Purpose */}
+            <div className="rounded-2xl border border-zinc-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-zinc-700 dark:bg-zinc-800">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#4a9e6e]/10 text-[#4a9e6e]">
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
@@ -129,37 +243,31 @@ export default async function AboutPage() {
               <h3 className="mt-5 text-xl font-semibold text-[#1e3a5f] dark:text-white">
                 Our Purpose
               </h3>
-              <p className="mt-3 leading-relaxed text-zinc-600 dark:text-zinc-400">
+              <p className="mt-3 leading-relaxed text-zinc-600 dark:text-white">
                 To provide professional, confidential, and evidence-based
                 counseling and consultancy services that empower individuals,
                 strengthen relationships, and build organizational capacity
                 across Tanzania and beyond.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
-      <section className="bg-zinc-50 px-6 py-24 dark:bg-zinc-900">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-8 md:grid-cols-2">
+            {/* Mission */}
             <div className="rounded-2xl border border-zinc-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-zinc-700 dark:bg-zinc-800">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#1e3a5f]/10 text-[#1e3a5f]">
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
                 </svg>
               </div>
-              <h2 className="mt-5 font-heading text-2xl font-bold text-[#1e3a5f] dark:text-white">
+              <h3 className="mt-5 text-xl font-semibold text-[#1e3a5f] dark:text-white">
                 Our Mission
-              </h2>
-              <p className="mt-4 leading-relaxed text-zinc-600 dark:text-zinc-400">
+              </h3>
+              <p className="mt-3 leading-relaxed text-zinc-600 dark:text-zinc-400">
                 To deliver professional counseling and consultancy services that
                 support mental health, strengthen relationships, and build
                 organizational capacity, contributing to the wellbeing of
                 individuals, families, and communities.
               </p>
             </div>
+            {/* Vision */}
             <div className="rounded-2xl border border-zinc-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-zinc-700 dark:bg-zinc-800">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#d4a843]/10 text-[#d4a843]">
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -167,10 +275,10 @@ export default async function AboutPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-              <h2 className="mt-5 font-heading text-2xl font-bold text-[#1e3a5f] dark:text-white">
+              <h3 className="mt-5 text-xl font-semibold text-[#1e3a5f] dark:text-white">
                 Our Vision
-              </h2>
-              <p className="mt-4 leading-relaxed text-zinc-600 dark:text-zinc-400">
+              </h3>
+              <p className="mt-3 leading-relaxed text-zinc-600 dark:text-zinc-400">
                 To be a leading provider of integrated counseling and
                 consultancy services, creating lasting positive change in the
                 lives of individuals, the strength of organizations, and the

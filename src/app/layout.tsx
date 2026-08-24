@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description:
     "Professional counseling and consultancy services supporting individuals, families, organizations, and communities in Dar es Salaam, Tanzania.",
   icons: {
-    icon: "/logo.png",
+    icon: "/logo.jpg",
   },
 };
 

@@ -48,10 +48,11 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
           <Image
-            src="/logo.png"
+            src="/logo.jpg"
             alt="Hope Bridge Logo"
-            width={44}
-            height={44}
+            width={80}
+            height={80}
+            className="rounded-full border-2 border-white/20"
             priority
           />
           <span className="hidden font-heading text-lg font-bold text-[#1e3a5f] sm:inline">

@@ -29,10 +29,11 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block transition-opacity hover:opacity-80">
               <Image
-                src="/logo.png"
+                src="/logo.jpg"
                 alt="Hope Bridge Logo"
-                width={60}
-                height={60}
+                width={80}
+                height={80}
+                className="rounded-full border-2 border-white/20"
               />
               <span className="ml-3 font-heading text-xl font-bold">
                 Hope Bridge
