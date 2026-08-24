@@ -115,10 +115,13 @@ export default function BookPage() {
           notes: formData.notes,
         }),
       });
-      if (!res.ok) throw new Error("Failed to submit booking");
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error || "Failed to submit booking");
+      }
       setStep(5);
     } catch (err: any) {
-      setSubmitError("Something went wrong. Please try again.");
+      setSubmitError(err.message || "Something went wrong. Please try again.");
     } finally {
       setSubmitting(false);
     }

@@ -2,7 +2,11 @@ import mongoose from "mongoose";
 import dns from "dns";
 
 // Force Google DNS to resolve MongoDB SRV records (local DNS may block SRV)
-dns.setServers(["8.8.8.8", "8.8.4.4"]);
+try {
+  dns.setServers(["8.8.8.8", "8.8.4.4"]);
+} catch {
+  // Ignore errors — may not be supported in all environments
+}
 
 interface MongooseCache {
   conn: typeof mongoose | null;
