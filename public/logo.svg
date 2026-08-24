@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Outer circle border -->
+  <circle cx="100" cy="100" r="96" fill="none" stroke="#1e3a5f" stroke-width="2"/>
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#1e3a5f" stroke-width="0.5"/>
+
+  <!-- Tagline text along the top arc -->
+  <path id="topArc" d="M 30,100 A 70,70 0 0,1 170,100" fill="none"/>
+  <text font-size="5.2" fill="#1e3a5f" font-family="Georgia, serif" letter-spacing="1.2">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">
+      Compassion • Professionalism • Empowerment • Confidentiality
+    </textPath>
+  </text>
+
+  <!-- Left branch/leaves -->
+  <g fill="none" stroke="#4a9e6e" stroke-width="1.5" stroke-linecap="round">
+    <!-- Left stem -->
+    <path d="M 52,120 Q 48,105 55,90"/>
+    <!-- Left leaves -->
+    <path d="M 52,115 Q 42,112 38,105"/>
+    <path d="M 50,107 Q 40,100 42,92"/>
+    <path d="M 53,98 Q 44,92 48,84"/>
+    <path d="M 55,92 Q 48,86 54,80"/>
+  </g>
+  <!-- Left leaf fills -->
+  <g fill="#4a9e6e" opacity="0.3">
+    <ellipse cx="42" cy="108" rx="5" ry="3" transform="rotate(-25 42 108)"/>
+    <ellipse cx="43" cy="98" rx="5" ry="3" transform="rotate(-20 43 98)"/>
+    <ellipse cx="48" cy="89" rx="5" ry="3" transform="rotate(-15 48 89)"/>
+  </g>
+
+  <!-- Right branch/leaves (mirrored) -->
+  <g fill="none" stroke="#4a9e6e" stroke-width="1.5" stroke-linecap="round">
+    <path d="M 148,120 Q 152,105 145,90"/>
+    <path d="M 148,115 Q 158,112 162,105"/>
+    <path d="M 150,107 Q 160,100 158,92"/>
+    <path d="M 147,98 Q 156,92 152,84"/>
+    <path d="M 145,92 Q 152,86 146,80"/>
+  </g>
+  <g fill="#4a9e6e" opacity="0.3">
+    <ellipse cx="158" cy="108" rx="5" ry="3" transform="rotate(25 158 108)"/>
+    <ellipse cx="157" cy="98" rx="5" ry="3" transform="rotate(20 157 98)"/>
+    <ellipse cx="152" cy="89" rx="5" ry="3" transform="rotate(15 152 89)"/>
+  </g>
+
+  <!-- Bridge arches -->
+  <g fill="none" stroke="#1e3a5f" stroke-width="2.5" stroke-linecap="round">
+    <!-- Left arch -->
+    <path d="M 58,130 Q 72,100 86,130"/>
+    <!-- Right arch -->
+    <path d="M 114,130 Q 128,100 142,130"/>
+  </g>
+  <!-- Bridge pillars -->
+  <g stroke="#1e3a5f" stroke-width="2.5" stroke-linecap="round">
+    <line x1="58" y1="130" x2="58" y2="140"/>
+    <line x1="86" y1="130" x2="86" y2="140"/>
+    <line x1="114" y1="130" x2="114" y2="140"/>
+    <line x1="142" y1="130" x2="142" y2="140"/>
+  </g>
+  <!-- Bridge base line -->
+  <line x1="55" y1="140" x2="145" y2="140" stroke="#1e3a5f" stroke-width="2"/>
+
+  <!-- Heart above bridge -->
+  <path d="M 100,82 C 100,76 92,68 86,68 C 78,68 74,76 80,84 L 100,102 L 120,84 C 126,76 122,68 114,68 C 108,68 100,76 100,82 Z"
+        fill="#d4a843" opacity="0.85"/>
+
+  <!-- HOPE BRIDGE text -->
+  <text x="100" y="118" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e3a5f" font-family="Georgia, serif" letter-spacing="1">
+    HOPE BRIDGE
+  </text>
+  <text x="100" y="127" text-anchor="middle" font-size="5" fill="#1e3a5f" font-family="Georgia, serif">
+    Counseling &amp; Consultancy
+  </text>
+
+  <!-- Bottom text along arc -->
+  <path id="bottomArc" d="M 35,100 A 65,65 0 0,0 165,100" fill="none"/>
+  <text font-size="5.5" fill="#1e3a5f" font-family="Georgia, serif" letter-spacing="0.8">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">
+      Consulting • Counselling • Training
+    </textPath>
+  </text>
+</svg>

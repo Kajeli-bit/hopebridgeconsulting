@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const navItems = [
@@ -46,8 +47,18 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
-          <span className="font-heading text-2xl font-bold text-[#1e3a5f]">
-            Hope<span className="text-[#4a9e6e]">Bridge</span>
+          <Image
+            src="/logo.png"
+            alt="Hope Bridge Logo"
+            width={44}
+            height={44}
+            priority
+          />
+          <span className="hidden font-heading text-lg font-bold text-[#1e3a5f] sm:inline">
+            Hope Bridge
+            <span className="block text-xs font-normal text-zinc-500">
+              Counselling &amp; Consultancy
+            </span>
           </span>
         </Link>
 

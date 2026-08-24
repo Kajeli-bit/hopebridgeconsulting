@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = {
   services: [
@@ -27,8 +28,17 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block transition-opacity hover:opacity-80">
-              <span className="font-heading text-2xl font-bold">
-                Hope<span className="text-[#7bc67e]">Bridge</span>
+              <Image
+                src="/logo.png"
+                alt="Hope Bridge Logo"
+                width={60}
+                height={60}
+              />
+              <span className="ml-3 font-heading text-xl font-bold">
+                Hope Bridge
+                <span className="block text-xs font-normal text-zinc-400">
+                  Counselling &amp; Consultancy
+                </span>
               </span>
             </Link>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-zinc-300">

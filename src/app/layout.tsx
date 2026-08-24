@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "Hope Bridge Counseling & Consultancy",
   description:
     "Professional counseling and consultancy services supporting individuals, families, organizations, and communities in Dar es Salaam, Tanzania.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
