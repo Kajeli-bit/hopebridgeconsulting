@@ -92,8 +92,36 @@ export default function BookPage() {
     return true;
   };
 
-  const handleSubmit = () => {
-    setStep(5);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  const handleSubmit = async () => {
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      const res = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          serviceType: selectedType,
+          service: selectedService,
+          date: formData.date,
+          time: formData.time,
+          format: formData.format,
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          communication: formData.communication,
+          notes: formData.notes,
+        }),
+      });
+      if (!res.ok) throw new Error("Failed to submit booking");
+      setStep(5);
+    } catch (err: any) {
+      setSubmitError("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -393,6 +421,13 @@ export default function BookPage() {
             </div>
           )}
 
+          {/* Error Message */}
+          {submitError && (
+            <div className="mt-4 rounded-lg bg-red-50 p-4 text-sm text-red-600 dark:bg-red-900/20 dark:text-red-400">
+              {submitError}
+            </div>
+          )}
+
           {/* Navigation Buttons */}
           {step < 5 && (
             <div className="mt-8 flex justify-between">
@@ -417,10 +452,10 @@ export default function BookPage() {
               ) : (
                 <button
                   onClick={handleSubmit}
-                  disabled={!canProceed()}
+                  disabled={!canProceed() || submitting}
                   className="rounded-full bg-[#4a9e6e] px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#3d8a5e] disabled:cursor-not-allowed disabled:opacity-50"
                 >
-                  Submit Request
+                  {submitting ? "Submitting..." : "Submit Request"}
                 </button>
               )}
             </div>
