@@ -139,7 +139,14 @@ export default function Home() {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="max-w-3xl">
-            
+              <Image
+                src="/logo.jpg"
+                alt="Hope Bridge Logo"
+                width={80}
+                height={80}
+                className="mb-4 rounded-full border-2 border-white/20"
+                priority
+              />
               <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-zinc-200 backdrop-blur-sm">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#4a9e6e]" />
                 Serving Dar es Salaam & beyond
@@ -194,7 +201,7 @@ export default function Home() {
             </div>
 
             {/* Hero visual */}
-            <div className="hidden lg:block">
+            <div className="hidden md:block">
               <div className="relative">
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#4a9e6e]/20 to-[#d4a843]/20 blur-2xl" />
                 <div className="relative rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">

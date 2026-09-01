@@ -27,15 +27,15 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-block transition-opacity hover:opacity-80">
+            <Link href="/" className="inline-flex items-center gap-3 transition-opacity hover:opacity-80">
               <Image
                 src="/logo.jpg"
                 alt="Hope Bridge Logo"
-                width={80}
-                height={80}
+                width={60}
+                height={60}
                 className="rounded-full border-2 border-white/20"
               />
-              <span className="ml-3 font-heading text-xl font-bold">
+              <span className="font-heading text-xl font-bold">
                 Hope Bridge
                 <span className="block text-xs font-normal text-zinc-400">
                   Counselling &amp; Consultancy

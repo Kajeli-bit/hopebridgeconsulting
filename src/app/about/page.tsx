@@ -103,13 +103,13 @@ export default async function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className="hidden justify-center lg:flex">
+            <div className="flex justify-center lg:justify-end">
               <Image
                 src="/logo.jpg"
                 alt="Hope Bridge Logo"
-                width={400}
-                height={400}
-                className="rounded-3xl"
+                width={200}
+                height={200}
+                className="rounded-3xl sm:w-[250px] sm:h-[250px] lg:w-[400px] lg:h-[400px]"
                 priority
               />
             </div>
@@ -131,9 +131,24 @@ export default async function AboutPage() {
             </p>
           </div>
 
-          <div className="mt-14 grid items-start gap-12 lg:grid-cols-1">
+          <div className="mt-14 grid items-start gap-12 lg:grid-cols-2">
+            {/* Logo display */}
+            <div className="flex justify-center">
+              <div className="relative">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#4a9e6e]/20 to-[#1e3a5f]/20 blur-3xl" />
+                <Image
+                  src="/logo.jpg"
+                  alt="Hope Bridge Logo"
+                  width={280}
+                  height={280}
+                  className="relative rounded-3xl border border-zinc-200 bg-white p-4 shadow-xl dark:border-zinc-700 dark:bg-zinc-800 sm:w-[320px] sm:h-[320px]"
+                  priority
+                />
+              </div>
+            </div>
+
             {/* Symbol meanings */}
-            <div className="space-y-5 ">
+            <div className="space-y-5">
               {/* Symbols */}
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="flex items-start gap-3 rounded-xl bg-white p-4 shadow-sm dark:bg-zinc-800">

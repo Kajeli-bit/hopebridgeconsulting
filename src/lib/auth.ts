@@ -19,6 +19,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         const user = await User.findOne({ email: credentials.email });
         if (!user) return null;
 
+        // Reject users who haven't set their password yet
+        if (user.isInvited || !user.password) {
+          return null;
+        }
+
         const isValid = await bcrypt.compare(credentials.password as string, user.password);
         if (!isValid) return null;
 

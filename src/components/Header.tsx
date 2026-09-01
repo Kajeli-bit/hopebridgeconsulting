@@ -50,12 +50,12 @@ export default function Header() {
           <Image
             src="/logo.jpg"
             alt="Hope Bridge Logo"
-            width={80}
-            height={80}
-            className="rounded-full border-2 border-white/20"
+            width={48}
+            height={48}
+            className="rounded-full border-2 border-white/20 sm:h-[60px] sm:w-[60px] lg:h-[80px] lg:w-[80px]"
             priority
           />
-          <span className="hidden font-heading text-lg font-bold text-[#1e3a5f] sm:inline">
+          <span className="hidden font-heading text-lg font-bold text-[#1e3a5f] sm:inline lg:text-xl">
             Hope Bridge
             <span className="block text-xs font-normal text-zinc-500">
               Counselling &amp; Consultancy
