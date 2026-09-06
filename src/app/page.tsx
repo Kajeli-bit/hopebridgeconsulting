@@ -121,19 +121,21 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#1e3a5f] via-[#244a72] to-[#2d5a87] px-6 py-24 text-white md:py-36">
-        {/* Background decorations */}
-        <div className="absolute inset-0 overflow-hidden">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#1e3a5f] via-[#244a72] to-[#2d5a87] px-6 py-16 text-white md:py-20">
+        {/* Background image — faded behind everything */}
+        <div className="absolute inset-0">
+          <img
+            src="/hopebridge.jpeg"
+            alt=""
+            className="absolute left-1/2 top-1/2 h-[100%] w-[100%] -translate-x-1/2 -translate-y-1/2 object-cover opacity-60"
+            style={{ objectPosition: "30% 40%" }}
+            loading="eager"
+          />
+          {/* Gradient overlays for readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f]/70 via-[#244a72]/70 to-[#2d5a87]/70" />
+          {/* Decorative accents */}
           <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[#4a9e6e]/10 blur-3xl" />
           <div className="absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full bg-[#d4a843]/8 blur-3xl" />
-          <div className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/5 blur-2xl" />
-          {/* Decorative pattern */}
-          <svg className="absolute right-0 top-0 h-full w-1/2 opacity-5" fill="none" viewBox="0 0 800 600">
-            <circle cx="400" cy="300" r="200" stroke="white" strokeWidth="0.5" />
-            <circle cx="400" cy="300" r="300" stroke="white" strokeWidth="0.5" />
-            <circle cx="400" cy="300" r="400" stroke="white" strokeWidth="0.5" />
-            <path d="M200,300 Q400,100 600,300 Q400,500 200,300" stroke="white" strokeWidth="0.5" fill="none" />
-          </svg>
         </div>
 
         <div className="relative mx-auto max-w-7xl">
@@ -200,52 +202,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Hero visual */}
-            <div className="hidden md:block">
-              <div className="relative">
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#4a9e6e]/20 to-[#d4a843]/20 blur-2xl" />
-                <div className="relative rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#4a9e6e]/20">
-                        <svg className="h-6 w-6 text-[#7bc67e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                      </div>
-                      <p className="mt-3 text-sm font-medium text-white">Compassionate Care</p>
-                      <p className="mt-1 text-xs text-zinc-400">With empathy and understanding</p>
-                    </div>
-                    <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#d4a843]/20">
-                        <svg className="h-6 w-6 text-[#d4a843]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
-                        </svg>
-                      </div>
-                      <p className="mt-3 text-sm font-medium text-white">Proven Results</p>
-                      <p className="mt-1 text-xs text-zinc-400">Evidence-based approaches</p>
-                    </div>
-                    <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10">
-                        <svg className="h-6 w-6 text-zinc-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                        </svg>
-                      </div>
-                      <p className="mt-3 text-sm font-medium text-white">100% Confidential</p>
-                      <p className="mt-1 text-xs text-zinc-400">Your privacy protected</p>
-                    </div>
-                    <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#4a9e6e]/20">
-                        <svg className="h-6 w-6 text-[#7bc67e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <p className="mt-3 text-sm font-medium text-white">Flexible Scheduling</p>
-                      <p className="mt-1 text-xs text-zinc-400">Online & in-person sessions</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* Hero visual — image is now a faded background behind the whole hero */}
+            <div />
           </div>
         </div>
       </section>

@@ -1,13 +1,48 @@
-import Link from "next/link";
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Contact Us | Hope Bridge",
-  description:
-    "Get in touch with Hope Bridge Counseling and Consultancy. Contact us for counseling sessions or consultancy inquiries.",
-};
+import { useState } from "react";
 
 export default function ContactPage() {
+  const [submitting, setSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setSubmitMessage(null);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get("name")?.toString() || "",
+      email: formData.get("email")?.toString() || "",
+      phone: formData.get("phone")?.toString() || "",
+      reason: formData.get("reason")?.toString() || "",
+      message: formData.get("message")?.toString() || "",
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        setSubmitMessage({ type: "success", text: "Message sent successfully! We'll get back to you within 24 hours." });
+        form.reset();
+      } else {
+        setSubmitMessage({ type: "error", text: result.error || "Something went wrong. Please try again." });
+      }
+    } catch {
+      setSubmitMessage({ type: "error", text: "Something went wrong. Please try again." });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <>
       {/* Hero */}
@@ -118,7 +153,12 @@ export default function ContactPage() {
                 <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
                   We&apos;ll get back to you within 24 hours.
                 </p>
-                <form className="mt-6 space-y-5">
+                <form onSubmit={handleSubmit} className="mt-6 space-y-5">
+                  {submitMessage && (
+                    <div className={`rounded-lg p-3 text-sm ${submitMessage.type === "success" ? "bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400" : "bg-red-50 text-red-600 dark:bg-red-900/20 dark:text-red-400"}`}>
+                      {submitMessage.text}
+                    </div>
+                  )}
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
                       <label
@@ -207,9 +247,10 @@ export default function ContactPage() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full rounded-full bg-[#4a9e6e] px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#3d8a5e] hover:shadow-md"
+                    disabled={submitting}
+                    className="w-full rounded-full bg-[#4a9e6e] px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#3d8a5e] hover:shadow-md disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    Send Message
+                    {submitting ? "Sending..." : "Send Message"}
                   </button>
                 </form>
                 <p className="mt-4 text-center text-xs text-zinc-500 dark:text-zinc-400">

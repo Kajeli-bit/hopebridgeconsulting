@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Prevent indexing of admin pages
+Disallow: /admin/
+Disallow: /set-password/
+
+# Prevent indexing of API routes
+Disallow: /api/

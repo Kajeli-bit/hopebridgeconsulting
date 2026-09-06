@@ -1,6 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@/lib/auth";
 import dbConnect from "@/lib/dbConnect";
 import TeamMember from "@/models/TeamMember";
+
+async function requireAdmin() {
+  const session = await auth();
+  if (!session || (session.user as any).role !== "admin") {
+    return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
+  }
+  return null;
+}
 
 // GET all team members
 export async function GET() {
@@ -18,6 +27,9 @@ export async function GET() {
 
 // POST create a new team member
 export async function POST(request: NextRequest) {
+  const unauthorized = await requireAdmin();
+  if (unauthorized) return unauthorized;
+
   try {
     await dbConnect();
     const body = await request.json();

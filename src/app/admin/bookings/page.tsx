@@ -38,8 +38,10 @@ export default function BookingsPage() {
   };
 
   useEffect(() => {
-    fetchBookings();
+    void fetchBookings();
   }, [filter]);
+
+  const [fetchBookingsKey, setFetchBookingsKey] = useState(0);
 
   const updateStatus = async (id: string, status: string) => {
     try {

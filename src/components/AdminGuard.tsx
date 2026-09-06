@@ -9,10 +9,10 @@ export default function AdminGuard({ children }: { children: React.ReactNode }) 
   const router = useRouter();
 
   useEffect(() => {
-    if (status === "unauthenticated") {
+    if (status === "unauthenticated" || (session && (session.user as any).role !== "admin")) {
       router.push("/admin/login");
     }
-  }, [status, router]);
+  }, [status, session, router]);
 
   if (status === "loading") {
     return (
@@ -22,7 +22,7 @@ export default function AdminGuard({ children }: { children: React.ReactNode }) 
     );
   }
 
-  if (!session) return null;
+  if (!session || (session.user as any).role !== "admin") return null;
 
   return <>{children}</>;
 }

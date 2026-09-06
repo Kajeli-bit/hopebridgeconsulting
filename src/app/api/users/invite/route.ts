@@ -3,7 +3,7 @@ import { auth } from "@/lib/auth";
 import crypto from "crypto";
 import dbConnect from "@/lib/dbConnect";
 import User from "@/models/User";
-import { resend } from "@/lib/resend";
+import { getResend } from "@/lib/resend";
 
 // POST invite a new user
 export async function POST(request: NextRequest) {
@@ -54,8 +54,8 @@ export async function POST(request: NextRequest) {
     const setPasswordUrl = `${baseUrl}/set-password?token=${inviteToken}`;
 
     // Send invitation email
-    const { error: emailError } = await resend.emails.send({
-      from: "Hope Bridge <noreply@hopebridgeconsulting.org>",
+    const { error: emailError } = await getResend().emails.send({
+      from: process.env.RESEND_FROM_EMAIL || "Hope Bridge <noreply@hopebridgeconsulting.org>",
       to: [email.toLowerCase()],
       subject: "You've been invited to join Hope Bridge Admin",
       html: `

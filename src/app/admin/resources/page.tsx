@@ -7,8 +7,9 @@ interface Resource {
   title: string;
   description: string;
   category: string;
-  url: string;
+  content: string;
   image: string;
+  author: string;
   published: boolean;
   createdAt: string;
 }
@@ -18,7 +19,7 @@ export default function ResourcesPage() {
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [editing, setEditing] = useState<Resource | null>(null);
-  const [form, setForm] = useState({ title: "", description: "", category: "", url: "", image: "", published: true });
+  const [form, setForm] = useState({ title: "", description: "", category: "", content: "", image: "", author: "", published: true });
 
   const fetchResources = async () => {
     setLoading(true);
@@ -54,7 +55,7 @@ export default function ResourcesPage() {
       }
       setShowForm(false);
       setEditing(null);
-      setForm({ title: "", description: "", category: "", url: "", image: "", published: true });
+      setForm({ title: "", description: "", category: "", content: "", image: "", author: "", published: true });
       fetchResources();
     } catch (e) {
       console.error("Failed to save resource:", e);
@@ -66,9 +67,10 @@ export default function ResourcesPage() {
       title: resource.title,
       description: resource.description,
       category: resource.category,
-      url: resource.url || "",
-      image: resource.image || "",
-      published: resource.published,
+       content: resource.content || "",
+       image: resource.image || "",
+       author: resource.author || "",
+       published: resource.published,
     });
     setEditing(resource);
     setShowForm(true);
@@ -92,7 +94,7 @@ export default function ResourcesPage() {
           <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Manage your resources and articles.</p>
         </div>
         <button
-          onClick={() => { setShowForm(true); setEditing(null); setForm({ title: "", description: "", category: "", url: "", image: "", published: true }); }}
+          onClick={() => { setShowForm(true); setEditing(null); setForm({ title: "", description: "", category: "", content: "", image: "", author: "", published: true }); }}
           className="rounded-full bg-[#4a9e6e] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#3d8a5e]"
         >
           + Add Resource
@@ -106,9 +108,10 @@ export default function ResourcesPage() {
             <div className="mt-4 space-y-4">
               <input placeholder="Title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-white" />
               <textarea placeholder="Description" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} rows={3} className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-white" />
-              <input placeholder="Category" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-white" />
-              <input placeholder="URL" value={form.url} onChange={(e) => setForm({ ...form, url: e.target.value })} className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-white" />
-              <input placeholder="Image URL" value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-white" />
+               <input placeholder="Category" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-white" />
+               <textarea placeholder="Content" value={form.content} onChange={(e) => setForm({ ...form, content: e.target.value })} rows={3} className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-white" />
+               <input placeholder="Image URL" value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-white" />
+               <input placeholder="Author" value={form.author} onChange={(e) => setForm({ ...form, author: e.target.value })} className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-white" />
               <label className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400">
                 <input type="checkbox" checked={form.published} onChange={(e) => setForm({ ...form, published: e.target.checked })} className="rounded" />
                 Published

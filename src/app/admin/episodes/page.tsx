@@ -8,7 +8,7 @@ interface Episode {
   description: string;
   number: number;
   category: string;
-  url: string;
+  audioUrl: string;
   image: string;
   published: boolean;
   createdAt: string;
@@ -19,7 +19,7 @@ export default function EpisodesPage() {
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [editing, setEditing] = useState<Episode | null>(null);
-  const [form, setForm] = useState({ title: "", description: "", number: 0, category: "", url: "", image: "", published: true });
+  const [form, setForm] = useState({ title: "", description: "", number: 0, category: "", audioUrl: "", image: "", published: true });
 
   const fetchEpisodes = async () => {
     setLoading(true);
@@ -35,7 +35,7 @@ export default function EpisodesPage() {
   };
 
   useEffect(() => {
-    fetchEpisodes();
+    void fetchEpisodes();
   }, []);
 
   const handleSubmit = async () => {
@@ -55,7 +55,7 @@ export default function EpisodesPage() {
       }
       setShowForm(false);
       setEditing(null);
-      setForm({ title: "", description: "", number: 0, category: "", url: "", image: "", published: true });
+      setForm({ title: "", description: "", number: 0, category: "", audioUrl: "", image: "", published: true });
       fetchEpisodes();
     } catch (e) {
       console.error("Failed to save episode:", e);
@@ -68,7 +68,7 @@ export default function EpisodesPage() {
       description: episode.description,
       number: episode.number,
       category: episode.category,
-      url: episode.url || "",
+      audioUrl: episode.audioUrl || "",
       image: episode.image || "",
       published: episode.published,
     });
@@ -94,7 +94,7 @@ export default function EpisodesPage() {
           <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Manage your Hope Talks podcast episodes.</p>
         </div>
         <button
-          onClick={() => { setShowForm(true); setEditing(null); setForm({ title: "", description: "", number: 0, category: "", url: "", image: "", published: true }); }}
+          onClick={() => { setShowForm(true); setEditing(null); setForm({ title: "", description: "", number: 0, category: "", audioUrl: "", image: "", published: true }); }}
           className="rounded-full bg-[#4a9e6e] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#3d8a5e]"
         >
           + Add Episode
@@ -112,7 +112,7 @@ export default function EpisodesPage() {
                 <input placeholder="Category" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} className="rounded-lg border border-zinc-300 px-4 py-2.5 text-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-white" />
               </div>
               <textarea placeholder="Description" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} rows={3} className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-white" />
-              <input placeholder="URL" value={form.url} onChange={(e) => setForm({ ...form, url: e.target.value })} className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-white" />
+              <input placeholder="Audio URL" value={form.audioUrl} onChange={(e) => setForm({ ...form, audioUrl: e.target.value })} className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-white" />
               <input placeholder="Image URL" value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-white" />
               <label className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400">
                 <input type="checkbox" checked={form.published} onChange={(e) => setForm({ ...form, published: e.target.checked })} className="rounded" />

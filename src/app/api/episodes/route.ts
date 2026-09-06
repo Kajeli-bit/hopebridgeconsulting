@@ -1,6 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@/lib/auth";
 import dbConnect from "@/lib/dbConnect";
 import Episode from "@/models/Episode";
+
+async function requireAdmin() {
+  const session = await auth();
+  if (!session || (session.user as any).role !== "admin") {
+    return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
+  }
+  return null;
+}
 
 // GET all episodes (with optional category filter)
 export async function GET(request: NextRequest) {
@@ -26,6 +35,9 @@ export async function GET(request: NextRequest) {
 
 // POST create a new episode
 export async function POST(request: NextRequest) {
+  const unauthorized = await requireAdmin();
+  if (unauthorized) return unauthorized;
+
   try {
     await dbConnect();
     const body = await request.json();

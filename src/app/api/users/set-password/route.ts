@@ -3,6 +3,49 @@ import bcrypt from "bcryptjs";
 import dbConnect from "@/lib/dbConnect";
 import User from "@/models/User";
 
+// GET validate invite token
+export async function GET(request: NextRequest) {
+  try {
+    await dbConnect();
+    const { searchParams } = new URL(request.url);
+    const token = searchParams.get("token");
+
+    if (!token) {
+      return NextResponse.json(
+        { success: false, valid: false, error: "Token is required" },
+        { status: 400 }
+      );
+    }
+
+    const user = await User.findOne({ inviteToken: token });
+
+    if (!user) {
+      return NextResponse.json(
+        { success: true, valid: false, error: "Invalid invitation token" },
+        { status: 200 }
+      );
+    }
+
+    if (user.inviteExpiry && new Date() > user.inviteExpiry) {
+      return NextResponse.json(
+        { success: true, valid: false, error: "Invitation has expired" },
+        { status: 200 }
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      valid: true,
+      name: user.name,
+    });
+  } catch (error: any) {
+    return NextResponse.json(
+      { success: false, valid: false, error: error.message },
+      { status: 500 }
+    );
+  }
+}
+
 // POST set password for invited user
 export async function POST(request: NextRequest) {
   try {

@@ -1,6 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@/lib/auth";
 import dbConnect from "@/lib/dbConnect";
 import Episode from "@/models/Episode";
+
+async function requireAdmin() {
+  const session = await auth();
+  if (!session || (session.user as any).role !== "admin") {
+    return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
+  }
+  return null;
+}
 
 // GET single episode
 export async function GET(
@@ -31,6 +40,9 @@ export async function PUT(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const unauthorized = await requireAdmin();
+  if (unauthorized) return unauthorized;
+
   try {
     await dbConnect();
     const { id } = await params;
@@ -59,6 +71,9 @@ export async function DELETE(
   _request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const unauthorized = await requireAdmin();
+  if (unauthorized) return unauthorized;
+
   try {
     await dbConnect();
     const { id } = await params;

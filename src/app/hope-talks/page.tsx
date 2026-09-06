@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import dbConnect from "@/lib/dbConnect";
 import Episode from "@/models/Episode";
@@ -53,15 +54,29 @@ export default async function HopeTalksPage() {
           <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
         </div>
         <div className="relative mx-auto max-w-7xl">
-          <span className="text-sm font-semibold uppercase tracking-wider text-[#d4a843]">
-            Our Podcast
-          </span>
-          <h1 className="mt-3 font-heading text-4xl font-bold md:text-5xl">Hope Talks</h1>
-          <p className="mt-5 max-w-2xl text-lg text-zinc-300">
-            Conversations that create hope. Our podcast explores mental health,
-            relationships, organizational leadership, and community development
-            through meaningful conversations with experts and practitioners.
-          </p>
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <span className="text-sm font-semibold uppercase tracking-wider text-[#d4a843]">
+                Our Podcast
+              </span>
+              <h1 className="mt-3 font-heading text-4xl font-bold md:text-5xl">Hope Talks</h1>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-zinc-300">
+                Conversations that create hope. Our podcast explores mental health,
+                relationships, organizational leadership, and community development
+                through meaningful conversations with experts and practitioners.
+              </p>
+            </div>
+            <div className="flex justify-center lg:justify-end">
+              <Image
+                src="/hopetalks.png"
+                alt="Hope Talks Podcast"
+                width={200}
+                height={200}
+                className="rounded-3xl sm:w-[250px] sm:h-[250px] lg:w-[400px] lg:h-[400px]"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </section>
 
