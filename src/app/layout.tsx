@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import ClientLayout from "@/components/ClientLayout";
 import AuthProvider from "@/components/AuthProvider";
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({
   variable: "--font-inter",
