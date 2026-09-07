@@ -3,13 +3,14 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { isAdminRole, getUserRole } from "@/lib/roles";
 
 export default function AdminGuard({ children }: { children: React.ReactNode }) {
   const { data: session, status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
-    if (status === "unauthenticated" || (session && (session.user as any).role !== "admin")) {
+    if (status === "unauthenticated" || (session && !isAdminRole(getUserRole(session.user)))) {
       router.push("/admin/login");
     }
   }, [status, session, router]);
@@ -22,7 +23,7 @@ export default function AdminGuard({ children }: { children: React.ReactNode }) 
     );
   }
 
-  if (!session || (session.user as any).role !== "admin") return null;
+  if (!session || !isAdminRole(getUserRole(session.user))) return null;
 
   return <>{children}</>;
 }

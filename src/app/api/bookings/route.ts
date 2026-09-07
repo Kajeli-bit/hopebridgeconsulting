@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
+import { isAdminRole } from "@/lib/roles";
 import dbConnect from "@/lib/dbConnect";
 import Booking from "@/models/Booking";
 
 async function requireAdmin() {
   const session = await auth();
-  if (!session || (session.user as any).role !== "admin") {
+  if (!session || !isAdminRole((session.user as any).role)) {
     return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
   }
   return null;
