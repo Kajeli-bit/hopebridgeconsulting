@@ -38,6 +38,7 @@ export default function RootLayout({
         <AuthProvider>
           <ClientLayout>{children}</ClientLayout>
         </AuthProvider>
+        <Analytics />
       </body>
     </html>
   );
