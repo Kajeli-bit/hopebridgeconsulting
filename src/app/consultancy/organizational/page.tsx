@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Organizational Capacity Development | Hope Bridge",
+  title: "Organizational Capacity Development | Hope Bridge Consulting",
   description:
-    "Strengthen your organization's capabilities through strategic planning, process improvement, and team development.",
+    "Organizational capacity development consultancy in Dar es Salaam, Tanzania — strategic planning, process improvement, team development, monitoring and evaluation, and resource mobilization by Hope Bridge Consulting and Consultancy.",
 };
 
 export default function OrganizationalPage() {

@@ -5,9 +5,9 @@ import dbConnect from "@/lib/dbConnect";
 import Episode from "@/models/Episode";
 
 export const metadata: Metadata = {
-  title: "Hope Talks | Hope Bridge",
+  title: "Hope Talks Podcast | Hope Bridge Consulting",
   description:
-    "Conversations that create hope — our podcast exploring mental health, relationships, and community development.",
+    "Hope Talks — the podcast from Hope Bridge Consulting and Consultancy exploring mental health, relationships, workplace wellbeing, leadership, and community development in Tanzania and beyond.",
 };
 
 const allCategories = [

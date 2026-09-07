@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Family Counseling | Hope Bridge",
+  title: "Family Counseling | Hope Bridge Consulting",
   description:
-    "Professional family counseling to strengthen bonds, improve communication, and resolve conflicts.",
+    "Family counseling in Dar es Salaam, Tanzania to strengthen bonds, improve family communication, and resolve conflict — offered by Hope Bridge Consulting and Consultancy.",
 };
 
 export default function FamilyCounselingPage() {

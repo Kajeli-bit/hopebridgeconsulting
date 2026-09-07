@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Consultancy Services | Hope Bridge",
+  title: "Consultancy Services | Hope Bridge Consulting",
   description:
-    "Professional organizational and institutional consultancy services for capacity development, project management, and more.",
+    "Hope Bridge Consulting and Consultancy provides organizational development, institutional strengthening, project management, research, technical consultancy, and training and coaching services for NGOs, government institutions, and development partners in Dar es Salaam, Tanzania.",
 };
 
 const services = [

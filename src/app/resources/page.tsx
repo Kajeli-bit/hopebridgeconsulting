@@ -4,9 +4,9 @@ import dbConnect from "@/lib/dbConnect";
 import Resource from "@/models/Resource";
 
 export const metadata: Metadata = {
-  title: "Resources | Hope Bridge",
+  title: "Resources | Hope Bridge Consulting",
   description:
-    "Articles, guides, and resources for mental health, relationships, workplace wellbeing, and organizational development.",
+    "Free articles, guides, and resources from Hope Bridge Consulting and Consultancy on mental health, relationships, workplace wellbeing, organizational development, and personal growth — for individuals and organizations in Tanzania.",
 };
 
 const categoryConfig: Record<string, { color: string; icon: React.ReactNode }> = {

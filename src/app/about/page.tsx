@@ -5,9 +5,9 @@ import dbConnect from "@/lib/dbConnect";
 import TeamMember from "@/models/TeamMember";
 
 export const metadata: Metadata = {
-  title: "About Us | Hope Bridge",
+  title: "About Us | Hope Bridge Consulting",
   description:
-    "Learn about Hope Bridge Counseling and Consultancy — our story, mission, vision, and approach.",
+    "Learn about Hope Bridge Consulting and Consultancy — a Dar es Salaam-based counseling and consultancy firm offering mental health counseling, relationship support, and organizational development services across Tanzania.",
 };
 
 const values = [

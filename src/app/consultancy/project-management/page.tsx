@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Project Management Consultancy | Hope Bridge",
+  title: "Project Management Consultancy | Hope Bridge Consulting",
   description:
-    "End-to-end project management support from planning through implementation and evaluation.",
+    "Project management consultancy in Dar es Salaam, Tanzania — project design, work planning, implementation support, monitoring and evaluation, reporting, and risk management by Hope Bridge Consulting and Consultancy.",
 };
 
 export default function ProjectManagementPage() {

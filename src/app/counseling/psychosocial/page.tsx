@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Psychosocial Support | Hope Bridge",
+  title: "Psychosocial Support | Hope Bridge Consulting",
   description:
-    "Holistic psychosocial support for life challenges, personal development, and emotional wellbeing.",
+    "Holistic psychosocial support in Dar es Salaam, Tanzania for life challenges, personal development, emotional support, coping strategies, and resilience building by Hope Bridge Consulting and Consultancy.",
 };
 
 export default function PsychosocialPage() {

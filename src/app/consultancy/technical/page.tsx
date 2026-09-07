@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Technical Consultancy | Hope Bridge",
+  title: "Technical Consultancy | Hope Bridge Consulting",
   description:
-    "Specialized technical expertise across various sectors and domains.",
+    "Technical consultancy services in Dar es Salaam, Tanzania — sector-specific technical advisory, program design, technical report writing, policy development, quality assurance, and technical due diligence by Hope Bridge Consulting and Consultancy.",
 };
 
 export default function TechnicalPage() {

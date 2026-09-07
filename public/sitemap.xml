@@ -1,92 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Hope Bridge Consulting and Consultancy — sitemap.
+  Domain: https://www.hopebridgeconsulting.org
+
+  This static sitemap mirrors the current public route tree. If you add or
+  remove top-level pages, update this file and redeploy, or migrate to a
+  dynamic sitemap route (e.g. src/app/sitemap.ts) so it stays in sync
+  automatically.
+-->
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/</loc>
+    <loc>https://www.hopebridgeconsulting.org/</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/about</loc>
+    <loc>https://www.hopebridgeconsulting.org/about</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/counseling</loc>
+    <loc>https://www.hopebridgeconsulting.org/counseling</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/counseling/individual</loc>
+    <loc>https://www.hopebridgeconsulting.org/counseling/individual</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/counseling/marriage</loc>
+    <loc>https://www.hopebridgeconsulting.org/counseling/marriage</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/counseling/family</loc>
+    <loc>https://www.hopebridgeconsulting.org/counseling/family</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/counseling/psychosocial</loc>
+    <loc>https://www.hopebridgeconsulting.org/counseling/psychosocial</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/consultancy</loc>
+    <loc>https://www.hopebridgeconsulting.org/consultancy</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/consultancy/organizational</loc>
+    <loc>https://www.hopebridgeconsulting.org/consultancy/organizational</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/consultancy/project-management</loc>
+    <loc>https://www.hopebridgeconsulting.org/consultancy/institutional</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/consultancy/training</loc>
+    <loc>https://www.hopebridgeconsulting.org/consultancy/project-management</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/consultancy/technical</loc>
+    <loc>https://www.hopebridgeconsulting.org/consultancy/research</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/consultancy/research</loc>
+    <loc>https://www.hopebridgeconsulting.org/consultancy/training</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/consultancy/institutional</loc>
+    <loc>https://www.hopebridgeconsulting.org/consultancy/technical</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/hope-talks</loc>
+    <loc>https://www.hopebridgeconsulting.org/hope-talks</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/resources</loc>
+    <loc>https://www.hopebridgeconsulting.org/resources</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/book</loc>
+    <loc>https://www.hopebridgeconsulting.org/book</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hopebridgeconsulting.vercel.app/contact</loc>
+    <loc>https://www.hopebridgeconsulting.org/contact</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

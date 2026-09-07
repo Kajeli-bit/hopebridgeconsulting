@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Research & Consultancy | Hope Bridge",
+  title: "Research & Consultancy | Hope Bridge Consulting",
   description:
-    "Evidence-based research, assessments, and consultancy to inform decision-making and strategy.",
+    "Research and consultancy services in Dar es Salaam, Tanzania — baseline and endline assessments, needs assessments, program evaluations, market research, policy research, and data analysis by Hope Bridge Consulting and Consultancy.",
 };
 
 export default function ResearchPage() {

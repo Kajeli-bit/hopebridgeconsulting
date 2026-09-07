@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Marriage & Couples Counseling | Hope Bridge",
+  title: "Marriage & Couples Counseling | Hope Bridge Consulting",
   description:
-    "Strengthen your relationship with professional marriage and couples counseling.",
+    "Professional marriage and couples counseling in Dar es Salaam, Tanzania — premarital counseling, relationship challenges, communication, conflict resolution, and trust and intimacy support by Hope Bridge Consulting and Consultancy.",
 };
 
 const services = [

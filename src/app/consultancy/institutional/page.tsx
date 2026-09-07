@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Institutional Strengthening | Hope Bridge",
+  title: "Institutional Strengthening | Hope Bridge Consulting",
   description:
-    "Build robust institutional frameworks, governance structures, and operational systems.",
+    "Institutional strengthening consultancy in Dar es Salaam, Tanzania — governance frameworks, policy development, organizational structure, compliance, and quality management by Hope Bridge Consulting and Consultancy.",
 };
 
 export default function InstitutionalPage() {

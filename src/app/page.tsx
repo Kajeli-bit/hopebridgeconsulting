@@ -1,5 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Hope Bridge Consulting and Consultancy — Counseling & Consultancy in Dar es Salaam",
+  description:
+    "Hope Bridge Consulting and Consultancy provides professional counseling and consultancy for individuals, couples, families, and organizations in Dar es Salaam, Tanzania. Book a counseling session or explore organizational development and project consultancy services.",
+};
 
 const services = [
   {

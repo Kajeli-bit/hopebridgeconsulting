@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Training & Coaching | Hope Bridge",
+  title: "Training & Coaching | Hope Bridge Consulting",
   description:
-    "Customized training programs, workshops, and coaching for teams and leadership.",
+    "Training and coaching services in Dar es Salaam, Tanzania — leadership development, team building, communication skills, conflict resolution, project management training, and executive coaching by Hope Bridge Consulting and Consultancy.",
 };
 
 export default function TrainingPage() {
