@@ -60,8 +60,8 @@ export const metadata: Metadata = {
     images: ["/logo.jpg"],
   },
   icons: {
-    icon: "/logo.jpg",
-    shortcut: "/logo.jpg",
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
   },
   // Google/Bing verify tags can go in <head> via a small <script> or <meta> in
   // src/app/head.tsx if you add one later. For now this is the canonical source.
