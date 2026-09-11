@@ -95,7 +95,7 @@ export default function Header() {
             href="/admin/login"
             className="rounded-full bg-zinc-200 px-5 py-2.5 text-sm font-medium text-zinc-600 transition-all hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600"
           >
-            Admin
+            Login
           </Link>
         </div>
 

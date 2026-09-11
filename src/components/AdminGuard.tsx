@@ -11,7 +11,7 @@ export default function AdminGuard({ children }: { children: React.ReactNode }) 
 
   useEffect(() => {
     if (status === "unauthenticated" || (session && !isAdminRole(getUserRole(session.user)))) {
-      router.push("/admin/login");
+      router.replace("/admin/login");
     }
   }, [status, session, router]);
 

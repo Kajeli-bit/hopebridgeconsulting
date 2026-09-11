@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useSession, signOut } from "next-auth/react";
 import AdminGuard from "@/components/AdminGuard";
@@ -79,6 +79,28 @@ export default function AdminLayout({
     return pathname.startsWith(href);
   };
 
+  // Global popstate listener that survives component unmount.
+  // When sign-out happens, the admin layout unmounts (navigating to "/"),
+  // which destroys any component-level listener. This module-level listener
+  // stays alive and catches the back-button press.
+  const hasSignedOut = useRef(false);
+  const globalPopState = useRef<(() => void) | null>(null);
+
+  // Reset flag when landing on login page
+  useEffect(() => {
+    if (pathname === "/admin/login") {
+      hasSignedOut.current = false;
+    }
+  }, [pathname]);
+
+  // Clean up any stale global listener on mount, then let sign-out re-attach it
+  useEffect(() => {
+    if (pathname !== "/admin/login" && globalPopState.current) {
+      window.removeEventListener("popstate", globalPopState.current);
+      globalPopState.current = null;
+    }
+  }, [pathname]);
+
   // Only super admins see the Users management section
   const isSuperAdmin = (session?.user as { role?: string } | undefined)?.role === "superadmin";
   const visibleNavItems = navItems.filter(
@@ -131,7 +153,17 @@ export default function AdminLayout({
             </div>
           )}
           <button
-            onClick={() => signOut({ callbackUrl: "/admin/login" })}
+            onClick={() => {
+              hasSignedOut.current = true;
+              const onPopState = () => {
+                if (hasSignedOut.current && window.location.pathname.startsWith("/admin")) {
+                  history.replaceState(null, "", "/admin/login");
+                }
+              };
+              globalPopState.current = onPopState;
+              window.addEventListener("popstate", onPopState);
+              signOut({ callbackUrl: "/" });
+            }}
             className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-zinc-600 hover:bg-zinc-100 hover:text-[#1e3a5f] dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white"
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -139,15 +171,6 @@ export default function AdminLayout({
             </svg>
             Sign Out
           </button>
-          <Link
-            href="/"
-            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-zinc-600 hover:bg-zinc-100 hover:text-[#1e3a5f] dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white"
-          >
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-            </svg>
-            Back to Site
-          </Link>
         </div>
       </aside>
 
@@ -171,9 +194,22 @@ export default function AdminLayout({
               Admin
             </span>
           </div>
-          <Link href="/" className="text-sm text-zinc-500 hover:text-[#1e3a5f]">
-            Back to Site
-          </Link>
+          <button
+            onClick={() => {
+              hasSignedOut.current = true;
+              const onPopState = () => {
+                if (hasSignedOut.current && window.location.pathname.startsWith("/admin")) {
+                  history.replaceState(null, "", "/admin/login");
+                }
+              };
+              globalPopState.current = onPopState;
+              window.addEventListener("popstate", onPopState);
+              signOut({ callbackUrl: "/" });
+            }}
+            className="text-sm font-medium text-zinc-500 hover:text-[#1e3a5f]"
+          >
+            Sign Out
+          </button>
         </div>
 
         {/* Mobile Sidebar */}

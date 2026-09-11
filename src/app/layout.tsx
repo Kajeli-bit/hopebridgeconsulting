@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     images: ["/logo.jpg"],
   },
   icons: {
-    icon: "/logo.svg",
+      icon: "/logo.svg",
     shortcut: "/logo.svg",
   },
   // Google/Bing verify tags can go in <head> via a small <script> or <meta> in
