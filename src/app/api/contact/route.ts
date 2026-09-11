@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getResend } from "@/lib/resend";
 
-const RECIPIENT_EMAIL = process.env.CONTACT_EMAIL || "hopebridgeconsulting@example.com";
+const RECIPIENTS = [
+  "felix.mkini@hopebridgeconsulting.org",
+  "anna.mbeyela@hopebridgeconsulting.org",
+  "levina.athanas@hopebridgeconsulting.org",
+];
 
 export async function POST(request: NextRequest) {
   try {
@@ -24,7 +28,7 @@ export async function POST(request: NextRequest) {
 
     const { error: emailError } = await getResend().emails.send({
       from: process.env.RESEND_FROM_EMAIL || "Hope Bridge Contact <noreply@hopebridgeconsulting.org>",
-      to: [RECIPIENT_EMAIL],
+      to: RECIPIENTS,
       subject: `New Contact Form Submission: ${reasonLabels[reason] || reason || "General Inquiry"}`,
       html: `
         <!DOCTYPE html>

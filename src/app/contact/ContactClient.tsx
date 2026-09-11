@@ -212,76 +212,89 @@ export default function ContactClient() {
                 <form onSubmit={handleSubmit} className="mt-6 space-y-5">
                   {submitMessage && (
                     <div
-                      className={`rounded-lg p-3 text-sm ${
+                      className={`rounded-xl border p-4 text-sm ${
                         submitMessage.type === "success"
-                          ? "bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400"
-                          : "bg-red-50 text-red-600 dark:bg-red-900/20 dark:text-red-400"
+                          ? "border-green-200 bg-green-50 text-green-700 dark:border-green-800 dark:bg-green-900/20 dark:text-green-400"
+                          : "border-red-200 bg-red-50 text-red-600 dark:border-red-800 dark:bg-red-900/20 dark:text-red-400"
                       }`}
                     >
-                      {submitMessage.text}
+                      <div className="flex items-center gap-2">
+                        {submitMessage.type === "success" ? (
+                          <svg className="h-5 w-5 flex-shrink-0 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        ) : (
+                          <svg className="h-5 w-5 flex-shrink-0 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                          </svg>
+                        )}
+                        {submitMessage.text}
+                      </div>
                     </div>
                   )}
+
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
                       <label
                         htmlFor="name"
-                        className="block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                        className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300"
                       >
-                        Name *
+                        Full Name <span className="text-[#4a9e6e]">*</span>
                       </label>
                       <input
                         type="text"
                         id="name"
                         name="name"
                         required
-                        placeholder="Your full name"
-                        className="mt-1.5 w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm transition-colors placeholder:text-zinc-400 focus:border-[#4a9e6e] focus:outline-none focus:ring-2 focus:ring-[#4a9e6e]/20 dark:border-zinc-600 dark:bg-zinc-700 dark:text-white dark:placeholder:text-zinc-500"
+                        placeholder="e.g. John Doe"
+                        className="mt-2 w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm transition-all placeholder:text-zinc-400 focus:border-[#4a9e6e] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#4a9e6e]/20 dark:border-zinc-600 dark:bg-zinc-700/50 dark:text-white dark:placeholder:text-zinc-500 dark:focus:bg-zinc-700"
                       />
                     </div>
                     <div>
                       <label
                         htmlFor="email"
-                        className="block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                        className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300"
                       >
-                        Email *
+                        Email Address <span className="text-[#4a9e6e]">*</span>
                       </label>
                       <input
                         type="email"
                         id="email"
                         name="email"
                         required
-                        placeholder="you@example.com"
-                        className="mt-1.5 w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm transition-colors placeholder:text-zinc-400 focus:border-[#4a9e6e] focus:outline-none focus:ring-2 focus:ring-[#4a9e6e]/20 dark:border-zinc-600 dark:bg-zinc-700 dark:text-white dark:placeholder:text-zinc-500"
+                        placeholder="e.g. john@example.com"
+                        className="mt-2 w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm transition-all placeholder:text-zinc-400 focus:border-[#4a9e6e] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#4a9e6e]/20 dark:border-zinc-600 dark:bg-zinc-700/50 dark:text-white dark:placeholder:text-zinc-500 dark:focus:bg-zinc-700"
                       />
                     </div>
                   </div>
+
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
                       <label
                         htmlFor="phone"
-                        className="block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                        className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300"
                       >
-                        Phone
+                        Phone Number
                       </label>
                       <input
                         type="tel"
                         id="phone"
                         name="phone"
-                        placeholder="Your phone number"
-                        className="mt-1.5 w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm transition-colors placeholder:text-zinc-400 focus:border-[#4a9e6e] focus:outline-none focus:ring-2 focus:ring-[#4a9e6e]/20 dark:border-zinc-600 dark:bg-zinc-700 dark:text-white dark:placeholder:text-zinc-500"
+                        placeholder="e.g. 0683 410 417"
+                        className="mt-2 w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm transition-all placeholder:text-zinc-400 focus:border-[#4a9e6e] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#4a9e6e]/20 dark:border-zinc-600 dark:bg-zinc-700/50 dark:text-white dark:placeholder:text-zinc-500 dark:focus:bg-zinc-700"
                       />
                     </div>
                     <div>
                       <label
                         htmlFor="reason"
-                        className="block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                        className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300"
                       >
                         Reason for Contact
                       </label>
                       <select
                         id="reason"
                         name="reason"
-                        className="mt-1.5 w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm transition-colors focus:border-[#4a9e6e] focus:outline-none focus:ring-2 focus:ring-[#4a9e6e]/20 dark:border-zinc-600 dark:bg-zinc-700 dark:text-white"
+                        className="mt-2 w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm transition-all focus:border-[#4a9e6e] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#4a9e6e]/20 dark:border-zinc-600 dark:bg-zinc-700/50 dark:text-white dark:focus:bg-zinc-700"
                       >
                         <option value="">Select a reason</option>
                         <option value="counseling">Counseling Inquiry</option>
@@ -291,28 +304,42 @@ export default function ContactClient() {
                       </select>
                     </div>
                   </div>
+
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                      className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300"
                     >
-                      Message *
+                      Your Message <span className="text-[#4a9e6e]">*</span>
                     </label>
                     <textarea
                       id="message"
                       name="message"
-                      rows={4}
+                      rows={5}
                       required
-                      placeholder="How can we help you?"
-                      className="mt-1.5 w-full resize-none rounded-xl border border-zinc-200 px-4 py-3 text-sm transition-colors placeholder:text-zinc-400 focus:border-[#4a9e6e] focus:outline-none focus:ring-2 focus:ring-[#4a9e6e]/20 dark:border-zinc-600 dark:bg-zinc-700 dark:text-white dark:placeholder:text-zinc-500"
+                      placeholder="Tell us how we can help you..."
+                      className="mt-2 w-full resize-none rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm transition-all placeholder:text-zinc-400 focus:border-[#4a9e6e] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#4a9e6e]/20 dark:border-zinc-600 dark:bg-zinc-700/50 dark:text-white dark:placeholder:text-zinc-500 dark:focus:bg-zinc-700"
                     />
                   </div>
+
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full rounded-full bg-[#4a9e6e] px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#3d8a5e] hover:shadow-md disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex w-full items-center justify-center gap-2 rounded-full bg-[#4a9e6e] px-6 py-3.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-[#3d8a5e] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    {submitting ? "Sending..." : "Send Message"}
+                    {submitting ? (
+                      <>
+                        <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                        </svg>
+                      </>
+                    )}
                   </button>
                 </form>
                 <p className="mt-4 text-center text-xs text-zinc-500 dark:text-zinc-400">
