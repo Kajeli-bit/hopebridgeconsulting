@@ -50,10 +50,10 @@ export default function LoginPage() {
               className="rounded-full border-2 border-zinc-200"
             />
             <h1 className="mt-4 text-xl font-bold text-[#1e3a5f] dark:text-white">
-              Admin Login
+              Login
             </h1>
             <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-              Sign in to access the admin dashboard
+              
             </p>
           </div>
 
