@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import dbConnect from "@/lib/dbConnect";
 import TeamMember from "@/models/TeamMember";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "About Us | Hope Bridge Consulting",
   description:
@@ -413,13 +415,21 @@ export default async function AboutPage() {
                 className="rounded-2xl border border-zinc-100 bg-white p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-zinc-700 dark:bg-zinc-800"
               >
                 <div className="relative mx-auto w-full overflow-hidden rounded-2xl bg-white shadow-lg dark:bg-zinc-100">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    width={400}
-                    height={500}
-                    className="h-auto w-full object-contain"
-                  />
+                  {member.image ? (
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      width={400}
+                      height={500}
+                      className="h-auto w-full object-contain"
+                    />
+                  ) : (
+                    <div className="flex h-48 items-center justify-center">
+                      <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#1e3a5f] text-2xl font-bold text-white">
+                        {member.initials}
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <h3 className="mt-5 text-lg font-semibold text-[#1e3a5f] dark:text-white">
                   {member.name}
