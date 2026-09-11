@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { getUserRole, getUserId } from "@/lib/roles";
+import ConfirmDialog from "@/components/ConfirmDialog";
 
 interface AdminUser {
   _id: string;
@@ -183,10 +184,10 @@ export default function UsersPage() {
     }
   };
 
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [deleteTarget, setDeleteTarget] = useState<AdminUser | null>(null);
+
   const handleDelete = async (user: AdminUser) => {
-    if (!confirm(`Are you sure you want to delete ${user.name} (${user.email})?\n\nThis cannot be undone.`)) {
-      return;
-    }
     try {
       const res = await fetch(`/api/users/${user._id}`, { method: "DELETE" });
       const data = await res.json();
@@ -224,6 +225,16 @@ export default function UsersPage() {
 
   return (
     <div>
+      <ConfirmDialog
+        open={confirmOpen}
+        title="Delete User"
+        message={`Are you sure you want to delete ${deleteTarget?.name || ""} (${deleteTarget?.email || ""})? This cannot be undone.`}
+        confirmLabel="Delete"
+        danger
+        onConfirm={() => { if (deleteTarget) handleDelete(deleteTarget); setConfirmOpen(false); setDeleteTarget(null); }}
+        onCancel={() => { setConfirmOpen(false); setDeleteTarget(null); }}
+      />
+
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-[#1e3a5f] dark:text-white">Users</h1>
@@ -398,7 +409,7 @@ export default function UsersPage() {
                     Edit
                   </button>
                   <button
-                    onClick={() => handleDelete(user)}
+                    onClick={() => { setDeleteTarget(user); setConfirmOpen(true); }}
                     disabled={isEditingSelf(user)}
                     className="rounded-lg bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100 disabled:cursor-not-allowed disabled:opacity-40 dark:bg-red-900/20 dark:text-red-400"
                   >

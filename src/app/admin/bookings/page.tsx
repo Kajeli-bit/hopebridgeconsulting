@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ConfirmDialog from "@/components/ConfirmDialog";
 
 interface Booking {
   _id: string;
@@ -23,6 +24,35 @@ export default function BookingsPage() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
 
+  // Confirm dialog state
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [confirmTitle, setConfirmTitle] = useState("");
+  const [confirmMessage, setConfirmMessage] = useState("");
+  const [confirmLabel, setConfirmLabel] = useState("Confirm");
+  const [confirmDanger, setConfirmDanger] = useState(false);
+  const [pendingAction, setPendingAction] = useState<(() => void) | null>(null);
+
+  const openConfirm = (
+    title: string,
+    message: string,
+    label: string,
+    danger: boolean,
+    action: () => void
+  ) => {
+    setConfirmTitle(title);
+    setConfirmMessage(message);
+    setConfirmLabel(label);
+    setConfirmDanger(danger);
+    setPendingAction(() => action);
+    setConfirmOpen(true);
+  };
+
+  const handleConfirm = () => {
+    pendingAction?.();
+    setConfirmOpen(false);
+    setPendingAction(null);
+  };
+
   const fetchBookings = async () => {
     setLoading(true);
     try {
@@ -41,8 +71,6 @@ export default function BookingsPage() {
     void fetchBookings();
   }, [filter]);
 
-  const [fetchBookingsKey, setFetchBookingsKey] = useState(0);
-
   const updateStatus = async (id: string, status: string) => {
     try {
       await fetch(`/api/bookings/${id}`, {
@@ -57,7 +85,6 @@ export default function BookingsPage() {
   };
 
   const deleteBooking = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this booking?")) return;
     try {
       await fetch(`/api/bookings/${id}`, { method: "DELETE" });
       fetchBookings();
@@ -76,6 +103,16 @@ export default function BookingsPage() {
 
   return (
     <div>
+      <ConfirmDialog
+        open={confirmOpen}
+        title={confirmTitle}
+        message={confirmMessage}
+        confirmLabel={confirmLabel}
+        danger={confirmDanger}
+        onConfirm={handleConfirm}
+        onCancel={() => { setConfirmOpen(false); setPendingAction(null); }}
+      />
+
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-[#1e3a5f] dark:text-white">Bookings</h1>
@@ -155,14 +192,26 @@ export default function BookingsPage() {
                         )}
                         {booking.status !== "cancelled" && (
                           <button
-                            onClick={() => updateStatus(booking._id, "cancelled")}
+                            onClick={() => openConfirm(
+                              "Cancel Booking",
+                              `Are you sure you want to cancel ${booking.name}'s ${booking.service} booking? This will notify the client.`,
+                              "Cancel Booking",
+                              true,
+                              () => updateStatus(booking._id, "cancelled")
+                            )}
                             className="rounded-lg bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100 dark:bg-red-900/20 dark:text-red-400"
                           >
                             Cancel
                           </button>
                         )}
                         <button
-                          onClick={() => deleteBooking(booking._id)}
+                          onClick={() => openConfirm(
+                            "Delete Booking",
+                            `Permanently delete ${booking.name}'s booking record? This cannot be undone.`,
+                            "Delete",
+                            true,
+                            () => deleteBooking(booking._id)
+                          )}
                           className="rounded-lg bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-600 hover:bg-zinc-200 dark:bg-zinc-700 dark:text-zinc-400"
                         >
                           Delete

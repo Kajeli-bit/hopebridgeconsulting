@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ConfirmDialog from "@/components/ConfirmDialog";
 
 interface TeamMember {
   _id: string;
@@ -73,8 +74,10 @@ export default function TeamPage() {
     setShowForm(true);
   };
 
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [deleteTarget, setDeleteTarget] = useState<TeamMember | null>(null);
+
   const handleDelete = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this team member?")) return;
     try {
       await fetch(`/api/team/${id}`, { method: "DELETE" });
       fetchMembers();
@@ -85,6 +88,16 @@ export default function TeamPage() {
 
   return (
     <div>
+      <ConfirmDialog
+        open={confirmOpen}
+        title="Delete Team Member"
+        message={`Are you sure you want to remove ${deleteTarget?.name || ""} from the team? This cannot be undone.`}
+        confirmLabel="Delete"
+        danger
+        onConfirm={() => { if (deleteTarget) handleDelete(deleteTarget._id); setConfirmOpen(false); setDeleteTarget(null); }}
+        onCancel={() => { setConfirmOpen(false); setDeleteTarget(null); }}
+      />
+
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-[#1e3a5f] dark:text-white">Team Members</h1>
@@ -146,7 +159,7 @@ export default function TeamPage() {
                 </div>
                 <div className="flex gap-2">
                   <button onClick={() => handleEdit(member)} className="rounded-lg bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-600 hover:bg-zinc-200 dark:bg-zinc-700 dark:text-zinc-400">Edit</button>
-                  <button onClick={() => handleDelete(member._id)} className="rounded-lg bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100 dark:bg-red-900/20 dark:text-red-400">Delete</button>
+                  <button onClick={() => { setDeleteTarget(member); setConfirmOpen(true); }} className="rounded-lg bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100 dark:bg-red-900/20 dark:text-red-400">Delete</button>
                 </div>
               </div>
             ))}

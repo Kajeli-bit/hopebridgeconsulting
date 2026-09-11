@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ConfirmDialog from "@/components/ConfirmDialog";
 
 interface Episode {
   _id: string;
@@ -76,8 +77,10 @@ export default function EpisodesPage() {
     setShowForm(true);
   };
 
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [deleteTarget, setDeleteTarget] = useState<Episode | null>(null);
+
   const handleDelete = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this episode?")) return;
     try {
       await fetch(`/api/episodes/${id}`, { method: "DELETE" });
       fetchEpisodes();
@@ -88,6 +91,16 @@ export default function EpisodesPage() {
 
   return (
     <div>
+      <ConfirmDialog
+        open={confirmOpen}
+        title="Delete Episode"
+        message={`Are you sure you want to delete Episode ${deleteTarget?.number ?? ""}: "${deleteTarget?.title || ""}"? This cannot be undone.`}
+        confirmLabel="Delete"
+        danger
+        onConfirm={() => { if (deleteTarget) handleDelete(deleteTarget._id); setConfirmOpen(false); setDeleteTarget(null); }}
+        onCancel={() => { setConfirmOpen(false); setDeleteTarget(null); }}
+      />
+
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-[#1e3a5f] dark:text-white">Episodes</h1>
@@ -152,7 +165,7 @@ export default function EpisodesPage() {
                     {episode.published ? "Published" : "Draft"}
                   </span>
                   <button onClick={() => handleEdit(episode)} className="rounded-lg bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-600 hover:bg-zinc-200 dark:bg-zinc-700 dark:text-zinc-400">Edit</button>
-                  <button onClick={() => handleDelete(episode._id)} className="rounded-lg bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100 dark:bg-red-900/20 dark:text-red-400">Delete</button>
+                  <button onClick={() => { setDeleteTarget(episode); setConfirmOpen(true); }} className="rounded-lg bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100 dark:bg-red-900/20 dark:text-red-400">Delete</button>
                 </div>
               </div>
             ))}
