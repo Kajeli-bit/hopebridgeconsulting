@@ -69,16 +69,13 @@ export default function Header() {
             <Link
               key={item.label}
               href={item.href}
-              className={`relative rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+              className={`rounded-full px-4 py-2 text-[15px] font-bold transition-all ${
                 isActive(item.href)
-                  ? "text-[#4a9e6e]"
-                  : "text-zinc-600 hover:text-[#1e3a5f] dark:text-zinc-400 dark:hover:text-white"
+                  ? "bg-[#4a9e6e]/10 text-[#4a9e6e] ring-1 ring-[#4a9e6e]/30"
+                  : "text-zinc-600 hover:text-[#1e3a5f] hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-white dark:hover:bg-zinc-800"
               }`}
             >
               {item.label}
-              {isActive(item.href) && (
-                <span className="absolute bottom-0 left-1/2 h-0.5 w-4 -translate-x-1/2 rounded-full bg-[#4a9e6e]" />
-              )}
             </Link>
           ))}
         </nav>
@@ -128,7 +125,7 @@ export default function Header() {
                 key={item.label}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className={`rounded-lg px-4 py-3 text-base font-medium transition-colors ${
+                className={`rounded-lg px-4 py-3 text-base font-bold transition-colors ${
                   isActive(item.href)
                     ? "bg-[#4a9e6e]/10 text-[#4a9e6e]"
                     : "text-zinc-700 hover:bg-zinc-50 dark:text-zinc-300 dark:hover:bg-zinc-800"
